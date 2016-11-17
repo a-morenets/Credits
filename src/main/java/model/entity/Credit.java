@@ -13,7 +13,7 @@ public class Credit {
     private boolean isIncreaseable;
 
     /**
-     *
+     * Constructor
      * @param name
      * @param currency
      * @param bankName

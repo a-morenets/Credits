@@ -10,10 +10,11 @@ import java.util.List;
 public class View {
 
     /**
-     *
+     * Print list
      * @param creditList
      */
-    public void printAllCredits(List<Credit> creditList) {
+    public void printCredits(List<Credit> creditList) {
+        System.out.println("===============================================");
         for (Credit credit : creditList) {
             System.out.println(credit);
         }

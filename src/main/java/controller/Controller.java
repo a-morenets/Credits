@@ -16,7 +16,7 @@ public class Controller {
     View view;
 
     /**
-     *
+     * Constructor
      * @param model
      * @param view
      */
@@ -26,11 +26,12 @@ public class Controller {
     }
 
     /**
-     *
+     * Process actions
      */
     public void process() {
         model.setCreditList(loadCredits());
-        view.printAllCredits(model.getCreditList());
+        view.printCredits(model.getCreditList());
+        view.printCredits(model.findCreditByPrepaymentAllowed());
     }
 
     /**

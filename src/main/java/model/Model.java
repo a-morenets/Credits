@@ -12,7 +12,7 @@ public class Model {
     private List<Credit> creditList;
 
     /**
-     *
+     * Constructor
      */
     public Model() {
         creditList = new ArrayList<>();
@@ -26,6 +26,22 @@ public class Model {
 
     public void setCreditList(List<Credit> creditList) {
         this.creditList = creditList;
+    }
+
+    /**
+     * Find credits by PrepaymentAllowed
+     * @return
+     */
+    public ArrayList findCreditByPrepaymentAllowed() {
+        return new ArrayList() {
+            {
+                for (Credit credit : creditList) {
+                    if (credit.isPrepaymentAllowed()) {
+                        add(credit);
+                    }
+                }
+            }
+        };
     }
 
 }
