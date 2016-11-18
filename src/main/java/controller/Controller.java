@@ -23,13 +23,13 @@ public class Controller {
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
+        model.setCreditList(loadCredits());
     }
 
     /**
      * Process actions
      */
     public void process() {
-        model.setCreditList(loadCredits());
         view.printCredits(model.getCreditList());
         view.printCredits(model.findCreditByPrepaymentAllowed());
     }
