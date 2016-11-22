@@ -4,6 +4,7 @@ import model.entity.Credit;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by a-morenets on 17.11.2016.
@@ -29,19 +30,19 @@ public class Model {
     }
 
     /**
-     * Find credits by PrepaymentAllowed
+     * Filter credits by PrepaymentAllowed
      * @return
      */
-    public ArrayList findCreditByPrepaymentAllowed() {
-        return new ArrayList() {
-            {
-                for (Credit credit : creditList) {
-                    if (credit.isPrepaymentAllowed()) {
-                        add(credit);
-                    }
-                }
-            }
-        };
+    public List<Credit> findCreditByPrepaymentAllowed() {
+        return creditList.stream().filter(c -> c.isPrepaymentAllowed()).collect(Collectors.toList());
+    }
+
+    /**
+     * Filter credits by PrepaymentAllowed
+     * @return
+     */
+    public List<Credit> findCreditByAnnualPercentageLessThan(double annualPercentage) {
+        return creditList.stream().filter(c -> c.getAnnualPercentage() <= annualPercentage).collect(Collectors.toList());
     }
 
 }

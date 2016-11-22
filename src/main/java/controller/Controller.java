@@ -23,22 +23,23 @@ public class Controller {
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
-        model.setCreditList(loadCredits());
     }
 
     /**
      * Process actions
      */
     public void process() {
-        view.printCredits(model.getCreditList());
-        view.printCredits(model.findCreditByPrepaymentAllowed());
+        model.setCreditList(initCredits());
+        view.printCredits(View.CREDIT_LIST, model.getCreditList());
+        view.printCredits(View.CREDITS_WITH_PREPAYMENT_ALLOWED, model.findCreditByPrepaymentAllowed());
+        view.printCredits(View.CREDITS_BY_ANNUAL_PERCENTAGE, model.findCreditByAnnualPercentageLessThan(8));
     }
 
     /**
      * Loads credit data from enum
      * @return
      */
-    private List<Credit> loadCredits() {
+    private List<Credit> initCredits() {
         List<Credit> tempList = new ArrayList<>();
         for (Data data : Data.values()) {
             Credit credit = new Credit(data.getName(), data.getCurrency(), data.getBankName(), data.getMonths(),
