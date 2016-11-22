@@ -21,7 +21,7 @@ public class ModelTest {
 
     @Test
     public void findCreditByPrepaymentAllowed() throws Exception {
-        assertEquals(9, model.findCreditByPrepaymentAllowed().size());
+        assertEquals(9, model.findCreditPrepaymentAllowed().size());
     }
 
 }

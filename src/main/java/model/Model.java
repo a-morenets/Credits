@@ -33,7 +33,7 @@ public class Model {
      * Filter credits by PrepaymentAllowed
      * @return
      */
-    public List<Credit> findCreditByPrepaymentAllowed() {
+    public List<Credit> findCreditPrepaymentAllowed() {
         return creditList.stream().filter(c -> c.isPrepaymentAllowed()).collect(Collectors.toList());
     }
 
