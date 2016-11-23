@@ -1,16 +1,31 @@
 package model.entity;
 
 /**
+ * Class Credit represents bank credit
  * Created by a-morenets on 17.11.2016.
  */
 public class Credit {
+
+    /** Name of credit */
     private String name;
+
+    /** Currency of credit */
     private Currency currency;
+
+    /** Bank */
     private Bank bank;
+
+    /** Minimum number of months for credit */
     private int months;
+
+    /** Annual percentage for credit */
     private double annualPercentage;
+
+    /** Prepayment allowed indication */
     private boolean prepaymentAllowed;
-    private boolean isIncreaseable;
+
+    /** Increasable indication */
+    private boolean isIncreasable;
 
     /**
      * Constructor
@@ -20,19 +35,20 @@ public class Credit {
      * @param months
      * @param annualPercentage
      * @param prepaymentAllowed
-     * @param isIncreaseable
+     * @param isIncreasable
      */
-    public Credit(String name, Currency currency, Bank bank, int months, double annualPercentage, boolean prepaymentAllowed, boolean isIncreaseable) {
+    public Credit(String name, Currency currency, Bank bank, int months, double annualPercentage,
+                  boolean prepaymentAllowed, boolean isIncreasable) {
         this.name = name;
         this.currency = currency;
         this.bank = bank;
         this.months = months;
         this.annualPercentage = annualPercentage;
         this.prepaymentAllowed = prepaymentAllowed;
-        this.isIncreaseable = isIncreaseable;
+        this.isIncreasable = isIncreasable;
     }
 
-    // Getters
+    /* Getters */
 
     public String getName() {
         return name;
@@ -58,21 +74,8 @@ public class Credit {
         return prepaymentAllowed;
     }
 
-    public boolean isIncreaseable() {
-        return isIncreaseable;
-    }
-
-    @Override
-    public String toString() {
-        return "Credit{" +
-                "name='" + name + '\'' +
-                ", currency=" + currency +
-                ", bank=" + bank +
-                ", months=" + months +
-                ", annualPercentage=" + annualPercentage +
-                ", prepaymentAllowed=" + prepaymentAllowed +
-                ", isIncreaseable=" + isIncreaseable +
-                '}';
+    public boolean isIncreasable() {
+        return isIncreasable;
     }
 
     @Override
@@ -85,7 +88,7 @@ public class Credit {
         if (months != credit.months) return false;
         if (Double.compare(credit.annualPercentage, annualPercentage) != 0) return false;
         if (prepaymentAllowed != credit.prepaymentAllowed) return false;
-        if (isIncreaseable != credit.isIncreaseable) return false;
+        if (isIncreasable != credit.isIncreasable) return false;
         if (name != null ? !name.equals(credit.name) : credit.name != null) return false;
         if (currency != credit.currency) return false;
         return bank != null ? bank.equals(credit.bank) : credit.bank == null;
@@ -103,7 +106,20 @@ public class Credit {
         temp = Double.doubleToLongBits(annualPercentage);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (prepaymentAllowed ? 1 : 0);
-        result = 31 * result + (isIncreaseable ? 1 : 0);
+        result = 31 * result + (isIncreasable ? 1 : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Credit{" +
+                "name='" + name + '\'' +
+                ", currency=" + currency +
+                ", bank=" + bank +
+                ", months=" + months +
+                ", annualPercentage=" + annualPercentage +
+                ", prepaymentAllowed=" + prepaymentAllowed +
+                ", isIncreasable=" + isIncreasable +
+                '}';
     }
 }

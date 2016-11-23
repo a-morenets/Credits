@@ -1,21 +1,28 @@
 package model.entity;
 
 /**
+ * Class Bank represents a bank
  * Created by a-morenets on 22.11.2016.
  */
 public class Bank {
+
+    /** Bank name */
     private String name;
+
+    /** Code of international financial organization (MFI) */
     private int bankCode;
 
     /**
      * Constructor
      * @param name        bank name
-     * @param bankCode    code of international financial organization (MFO)
+     * @param bankCode    MFI
      */
     public Bank(String name, int bankCode) {
         this.name = name;
         this.bankCode = bankCode;
     }
+
+    /* Getters & Setters*/
 
     public String getName() {
         return name;

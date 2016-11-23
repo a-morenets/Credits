@@ -1,5 +1,5 @@
 import controller.Controller;
-import model.Model;
+import model.CreditModel;
 import view.View;
 
 /**
@@ -12,9 +12,9 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
-        Model model = new Model();
+        CreditModel creditModel = new CreditModel();
         View view = new View();
-        Controller controller = new Controller(model, view);
+        Controller controller = new Controller(creditModel, view);
         controller.process();
     }
 
